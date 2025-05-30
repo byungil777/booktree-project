@@ -27,7 +27,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'backend.mainpage',  # ✅ 수정 필수
 ]
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -39,12 +41,12 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'booktree.urls'
+ROOT_URLCONF = 'backend.booktree.urls'
 
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'frontend', 'templates')],  # ← 이 줄 수정!
+        'DIRS': [os.path.join(BASE_DIR.parent, 'frontend', 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -56,7 +58,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'booktree.wsgi.application'
+WSGI_APPLICATION = 'backend.booktree.wsgi.application'
 
 
 # Database
